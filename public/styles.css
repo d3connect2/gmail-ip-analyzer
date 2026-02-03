@@ -1,0 +1,290 @@
+/* Gmail IP Analyzer - styles */
+
+:root {
+  --bg: #0f1419;
+  --surface: #1a2332;
+  --surface2: #243044;
+  --text: #e6edf3;
+  --textMuted: #8b949e;
+  --accent: #58a6ff;
+  --accentHover: #79b8ff;
+  --success: #3fb950;
+  --warning: #d29922;
+  --error: #f85149;
+  --radius: 10px;
+  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--textMuted);
+  font-size: 0.95rem;
+}
+
+.subtitle a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.subtitle a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--surface2);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.hint {
+  margin: 0 0 1rem;
+  color: var(--textMuted);
+  font-size: 0.875rem;
+}
+
+.hint a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.hint a:hover {
+  text-decoration: underline;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--textMuted);
+}
+
+.field input {
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--surface2);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
+}
+
+.btn {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  align-self: flex-start;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accentHover);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.status.info {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--accent);
+}
+
+.status.success {
+  background: rgba(63, 185, 80, 0.15);
+  color: var(--success);
+}
+
+.status.error {
+  background: rgba(248, 81, 73, 0.15);
+  color: var(--error);
+}
+
+.summary {
+  margin: 0 0 1rem;
+  color: var(--textMuted);
+  font-size: 0.9rem;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.email-block {
+  background: var(--bg);
+  border: 1px solid var(--surface2);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.email-block .email-meta {
+  margin-bottom: 0.75rem;
+}
+
+.email-block .subject {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.email-block .from {
+  font-size: 0.875rem;
+  color: var(--textMuted);
+}
+
+.email-block .date {
+  font-size: 0.8rem;
+  color: var(--textMuted);
+}
+
+.ip-block {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--surface2);
+}
+
+.ip-block .ip-address {
+  font-family: ui-monospace, monospace;
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.ip-block .ip-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.ip-info .item {
+  color: var(--textMuted);
+}
+
+.ip-info .item strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.ip-block .ip-fail {
+  font-size: 0.875rem;
+  color: var(--warning);
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  font-size: 0.8rem;
+  color: var(--textMuted);
+}
+
+.footer code {
+  background: var(--surface2);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .ip-block .ip-info {
+    grid-template-columns: 1fr;
+  }
+}

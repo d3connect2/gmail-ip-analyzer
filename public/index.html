@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail IP Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Gmail IP Analyzer</h1>
+      <p class="subtitle">Extract sender IPs from emails and look up location &amp; ISP via <a href="https://ip-api.com/docs" target="_blank" rel="noopener">ip-api.com</a></p>
+    </header>
+
+    <main class="main">
+      <section class="card form-card">
+        <h2>Connect &amp; Analyze</h2>
+        <p class="hint">Use your Gmail address and an <a href="https://myaccount.google.com/apppasswords" target="_blank" rel="noopener">App Password</a> (not your normal password). Unread emails in your <strong>Spam</strong> folder will be processed and marked as read.</p>
+        <form id="analyze-form" class="form">
+          <div class="field">
+            <label for="email">Gmail address</label>
+            <input type="email" id="email" name="email" placeholder="you@gmail.com" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="appPassword">App password</label>
+            <input type="password" id="appPassword" name="appPassword" placeholder="16-character app password" required autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="maxEmails">Max emails from Spam to process</label>
+            <input type="number" id="maxEmails" name="maxEmails" value="20" min="1" max="100">
+          </div>
+          <button type="submit" id="submit-btn" class="btn btn-primary">Fetch &amp; Analyze Emails</button>
+        </form>
+        <div id="form-status" class="status" aria-live="polite"></div>
+      </section>
+
+      <section class="card results-card" id="results-section" hidden>
+        <h2>Results</h2>
+        <p id="results-summary" class="summary"></p>
+        <div id="results-list" class="results-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Sender IP is parsed from <code>Received:</code> headers (e.g. <code>Received: from host (name [185.174.29.12])</code>). Data from <a href="https://ip-api.com/docs" target="_blank" rel="noopener">ip-api.com</a> (45 req/min).</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

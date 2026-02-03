@@ -1,0 +1,16 @@
+{
+  "name": "gmail-ip-analyzer",
+  "version": "1.0.0",
+  "description": "Webapp to fetch Gmail emails, extract sender IPs from Received headers, and look up IP info via ip-api.com",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "imap": "^0.8.19",
+    "mailparser": "^3.6.5"
+  }
+}
