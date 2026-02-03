@@ -203,6 +203,11 @@ app.get('/api/health', (req, res) => {
   res.json({ ok: true });
 });
 
-app.listen(PORT, () => {
-  console.log(`Gmail IP Analyzer server running at http://localhost:${PORT}`);
-});
+// Only listen when run directly (e.g. node server.js); Vercel uses the exported app
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Gmail IP Analyzer server running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
